@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create_employee.css') }}">
+    <title>従業員管理 - 新規登録</title>
+</head>
+<body>   
+    <div class="container">
+        <h1 class="title">従業員情報 - 新規登録</h1>
+        
+        <form action="{{ url_for('create_employee') }}" method="POST" class="modern-form">
+            <label>氏名: <input type="text" name="name" required /></label><br>
+            <label>役職: <input type="text" name="position" required /></label><br>
+            <label>生年月日: <input type="date" name="birth_date" required /></label><br>
+            <label>性別:
+                <select name="gender" required>
+                    <option value="男性">男性</option>
+                    <option value="女性">女性</option>
+                    <option value="その他">その他</option>
+                </select>
+            </label><br>
+            <label>入社日: <input type="date" name="hire_date" required /></label><br>
+            <a href="{{ url_for('index') }}" class="button">  従業員一覧へ</a>
+            <button type="submit">登録</button>
+        </form>
+    </div>
+</body>
+</html>

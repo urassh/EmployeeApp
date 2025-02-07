@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/update.css') }}">
+    <title>従業員管理 - 編集</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">従業員情報 - 編集</h1>
+        <form action="{{ url_for('update_employee', employee_id=employee.id) }}" method="POST" class="modern-form">
+            <label>氏名: <input type="text" name="name" value="{{ employee.name }}" required /></label><br>
+            <label>役職: <input type="text" name="position" value="{{ employee.position }}" required /></label><br>
+            <label>生年月日: <input type="date" name="birth_date" value="{{ employee.birth_date }}" required /></label><br>
+            <label>性別:
+                <select name="gender" value="{{ employee.gender }}" required>
+                    <option value="男性">男性</option>
+                    <option value="女性">女性</option>
+                    <option value="その他">その他</option>
+                </select>
+            </label><br>
+            <label>入社日: <input type="date" name="hire_date" value="{{ employee.hire_date }}" required /></label><br>
+            <button type="submit">更新</button>
+        </form>
+        <a href="{{ url_for('index') }}"class="button">従業員一覧へ</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.title {
+    margin-bottom: 12px;
+}
+
+.modern-form button {
+    width: 200px;
+    height: 44px;
+    background-color: rgb(255,144,144);
+}
+.modern-form button :hover{
+    background-color: #b50000;
+}
+.modern-form button :active {
+    background-color: #8f0000;
+}

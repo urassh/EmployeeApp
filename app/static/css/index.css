@@ -1,0 +1,22 @@
+.title {
+    margin-bottom: 30px;
+}
+
+.list {
+    margin-top: 15px;
+}
+
+.button {
+    width: 200px;
+    height: 44px;
+    background-color: rgb(255,144,144);
+    color: white;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+button:active {
+    background-color: #e74c3c;
+}

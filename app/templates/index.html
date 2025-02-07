@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>従業員リスト</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">従業員リスト</h1>
+        <a href="{{ url_for('show_create_employee') }}"class="button">新規従業員登録</a>
+        <table class="list">
+            <tr>
+                <th>氏名</th>
+                <th>役職</th>
+                <th>生年月日</th>
+                <th>性別</th>
+                <th>入社日</th>
+                <th>操作</th>
+            </tr>
+            
+            {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.birth_date }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.hire_date }}</td>
+                    <td>
+                        <a href="{{ url_for('show_update_employee', employee_id=employee.id) }}"> <button type="submit">編集</button></a>
+                        <form action="{{ url_for('delete_employee', employee_id=employee.id) }}" method="post" style="display:inline;">
+                            <button type="submit">削除</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
